@@ -6,36 +6,80 @@ namespace CalculatorVers02
     {
         public double Accumulator { get; private set; }
 
+        public double Add(double a)
+        {
+            return Accumulator += a;
+            // Property Accumulator tillægges værdien fra parameter a. 
+        }
+
         public double Add(double a, double b)
         {
-            return a + b;
+            return Accumulator = a + b;
+        }
+
+        public double Subtract(double a)
+        {
+            return Accumulator -= a;
+            
         }
 
         public double Subtract(double a, double b)
         {
-            return a - b;
+            return Accumulator = a - b;
+        }
+
+        public double Multiply(double a)
+        {
+            return Accumulator *= a;
+            
         }
         public double Multiply(double a, double b)
         {
-            return a * b;
+            return Accumulator = a * b;
+        }
+
+        public double Power(double a)
+        {
+            return Math.Pow(Accumulator ,a);
+             
         }
         public double Power(double x, double exp)
         {
             return Math.Pow(x, exp);
         }
-        //Ny tilføjet metode 
-        public double AddAndSubtract(double a, double b, double c)
+
+        public double Divide(double a)
         {
-            return (a + b - c);
+            try
+            {
+                Accumulator /= a;
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Division of {0} by zero not possible.", Accumulator);
+            }
+
+            return Accumulator;
+
         }
-        //Ny tilføjet metode nr. 2
+
         public double Divide(double a, double b)
         {
-            if (b == 0)
+            try
             {
-                return 0;
+                Accumulator = a/b;
             }
-            return (a / b);
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Division of {0} by zero not possible.", a);
+            }
+
+            return Accumulator;
+        }
+
+        public void Clear()
+        {
+            Accumulator = 0;
         }
     }
 }
