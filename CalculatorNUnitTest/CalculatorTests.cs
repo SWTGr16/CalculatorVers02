@@ -72,6 +72,8 @@ namespace CalculatorNUnitTest
 
 
         [TestCase(5, 2, 7)]
+        [TestCase(4,5,9)]
+        [TestCase(1, 7, 8)]
         public void AccumulatorAdd_OneParameter_SetToValue_b(int acc, int a, int b)
         {
             uut.Accumulator = acc;
@@ -80,6 +82,8 @@ namespace CalculatorNUnitTest
         }
 
         [TestCase(5, 2, 3)]
+        [TestCase(9, 5, 4)]
+        [TestCase(8, 7, 1)]
         public void AccumulatorSubstract_OneParameter_SetToValue_b(int acc, int a, int b)
         {
             uut.Accumulator = acc;
@@ -88,6 +92,8 @@ namespace CalculatorNUnitTest
         }
 
         [TestCase(5, 5, 1)]
+        [TestCase(10, 2, 5)]
+        [TestCase(40, 10, 4)]
         public void AccumulatorDivide_OneParameter_SetToValue_b(int acc, int a, int b)
         {
             uut.Accumulator = acc;
@@ -96,6 +102,8 @@ namespace CalculatorNUnitTest
         }
 
         [TestCase(5, 2, 10)]
+        [TestCase(4, 5, 20)]
+        [TestCase(3, 9, 27)]
         public void AccumulatorMultiply_OneParameter_SetToValue_b(int acc, int a, int b)
         {
             uut.Accumulator = acc;
@@ -103,8 +111,20 @@ namespace CalculatorNUnitTest
             Assert.That(uut.Accumulator, Is.EqualTo(b));
         }
 
+        [TestCase(5, 2, 25)]
+        [TestCase(4, 2, 16)]
+        [TestCase(3, 2, 9)]
+        public void AccumulatorPow_OneParameter_SetToValue_c(int acc, int a, int b)
+        {
+            uut.Accumulator = acc;
+            uut.Power(a);
+            Assert.That(uut.Accumulator, Is.EqualTo(b));
+        }
+
 
         [TestCase(5, 2, 7)]
+        [TestCase(4, 5, 9)]
+        [TestCase(4, 5, 9)]
         public void AccumulatorAdd_TwoParameters_SetToValue_c(int a, int b, int c)
         {
             uut.Add(a, b);
@@ -114,34 +134,44 @@ namespace CalculatorNUnitTest
        
 
         [TestCase(7, 2, 5)]
-        public void AccumulatorSubstract_SetToValue_c(int a, int b, int c)
+        [TestCase(9, 5, 4)]
+        [TestCase(8, 7, 1)]
+        public void AccumulatorSubstract_TwoParameters_SetToValue_c(int a, int b, int c)
         {
             uut.Subtract(a, b);
             Assert.That(uut.Accumulator, Is.EqualTo(c));
         }
 
         [TestCase(5, 5, 1)]
-        public void AccumulatorDivide_SetToValue_c(int a, int b, int c)
+        [TestCase(10, 2, 5)]
+        [TestCase(40, 10, 4)]
+        public void AccumulatorDivide_TwoParameters_SetToValue_c(int a, int b, int c)
         {
             uut.Divide(a, b);
             Assert.That(uut.Accumulator, Is.EqualTo(c));
         }
 
         [TestCase(5, 2, 10)]
-        public void AccumulatorMultiply_SetToValue_c(int a, int b, int c)
+        [TestCase(4, 5, 20)]
+        [TestCase(3, 9, 27)]
+        public void AccumulatorMultiply_TwoParameters_SetToValue_c(int a, int b, int c)
         {
             uut.Multiply(a, b);
             Assert.That(uut.Accumulator, Is.EqualTo(c));
         }
 
         [TestCase(5, 2, 25)]
-        public void AccumulatorPow_SetToValue_c(int a, int b, int c)
+        [TestCase(4, 2, 16)]
+        [TestCase(3, 2, 9)]
+        public void AccumulatorPow_TwoParameters_SetToValue_c(int a, int b, int c)
         {
             uut.Power(a, b);
             Assert.That(uut.Accumulator, Is.EqualTo(c));
         }
 
         [TestCase(5,4,9)]
+        [TestCase(5, 5, 10)]
+        [TestCase(3, 9, 12)]
         public void AccumulateAddMethod_accumulutor_plus_a_equals_b(double acc,double a, double b)
         {
             uut.Accumulator = acc;
@@ -149,6 +179,8 @@ namespace CalculatorNUnitTest
         }
 
         [TestCase(9, 4, 5)]
+        [TestCase(5, 5, 0)]
+        [TestCase(13, 9, 4)]
         public void AccumulateSubtractMethod_accumulutor_minus_a_equals_b(double acc, double a, double b)
         {
             uut.Accumulator = acc;
@@ -156,6 +188,8 @@ namespace CalculatorNUnitTest
         }
 
         [TestCase(5, 5, 1)]
+        [TestCase(20, 5, 4)]
+        [TestCase(27, 3, 9)]
         public void AccumulateDivideMethod_accumulutor_divide_a_equals_b(double acc, double a, double b)
         {
             uut.Accumulator = acc;
@@ -163,6 +197,8 @@ namespace CalculatorNUnitTest
         }
 
         [TestCase(5, 4, 20)]
+        [TestCase(10, 5, 50)]
+        [TestCase(3, 9, 27)]
         public void AccumulateMultiplyMethod_accumulutor_multiply_a_equals_b(double acc, double a, double b)
         {
             uut.Accumulator = acc;
@@ -170,6 +206,8 @@ namespace CalculatorNUnitTest
         }
 
         [TestCase(5, 2, 25)]
+        [TestCase(4, 2, 16)]
+        [TestCase(3, 3, 27)]
         public void AccumulateAddMethod_accumulutor_power_a_equals_b(double acc, double a, double b)
         {
             uut.Accumulator = acc;

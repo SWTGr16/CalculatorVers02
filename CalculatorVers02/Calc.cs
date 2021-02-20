@@ -40,18 +40,22 @@ namespace CalculatorVers02
 
         public double Power(double a)
         {
-            return Math.Pow(Accumulator ,a);
+            return Accumulator=Math.Pow(Accumulator ,a);
              
         }
         public double Power(double x, double exp)
         {
-            return Math.Pow(x, exp);
+            return Accumulator =Math.Pow(x, exp);
         }
 
         public double Divide(double a)
         {
             if (a != 0)
-                return Accumulator /= a;
+            {
+                Accumulator = Accumulator / a;
+                return Accumulator;
+            }
+                //return Accumulator /= a;
             
             {
                 Console.WriteLine("Division of {0} by zero not possible.", Accumulator);
