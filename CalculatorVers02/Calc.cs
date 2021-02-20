@@ -50,31 +50,30 @@ namespace CalculatorVers02
 
         public double Divide(double a)
         {
-            try
-            {
-                Accumulator /= a;
-            }
-            catch (DivideByZeroException)
+            if (a != 0)
+                return Accumulator /= a;
+            
             {
                 Console.WriteLine("Division of {0} by zero not possible.", Accumulator);
+                throw new DivideByZeroException();
             }
 
-            return Accumulator;
+            
 
         }
 
         public double Divide(double a, double b)
         {
-            try
-            {
-                Accumulator = a/b;
-            }
-            catch (DivideByZeroException)
+            if (b != 0)
+                return Accumulator = a / b;
+            
             {
                 Console.WriteLine("Division of {0} by zero not possible.", a);
+                throw new DivideByZeroException();
             }
 
-            return Accumulator;
+            
+
         }
 
         public void Clear()
@@ -83,3 +82,4 @@ namespace CalculatorVers02
         }
     }
 }
+

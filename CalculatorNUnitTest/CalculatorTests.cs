@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 using CalculatorVers02;
 
@@ -38,11 +39,19 @@ namespace CalculatorNUnitTest
         }
 
         [TestCase(4, 4, 1)]
-        [TestCase(5, 0, 0)]
+        [TestCase(5, 1, 5)]
         [TestCase(9, 3, 3)]
         public void Dividea_withb_Returnsc(double a, double b, double c)
         {
             Assert.That(uut.Divide(a, b), Is.EqualTo(c));
+        }
+
+        [TestCase(4,0)]
+        [TestCase(5, 0)]
+        [TestCase(10, 0)]
+        public void TestThatThrowsException3(double a, double b)
+        {
+            Assert.That(() => uut.Divide(a,b), Throws.TypeOf<DivideByZeroException>());
         }
 
         [TestCase(4, 2, 16)]
@@ -52,6 +61,14 @@ namespace CalculatorNUnitTest
         {
             Assert.That(uut.Power(a, b), Is.EqualTo(c));
         }
+
+        [Test]
+        public void TestThatAccumulatorEqualsZero()
+        {
+            uut.Clear();
+            Assert.That(uut.Accumulator, Is.EqualTo(0));
+        }
+
 
     }
 }
