@@ -1,9 +1,9 @@
 using NUnit.Framework;
 using CalculatorVers02;
 
-namespace Calculator.Test
+namespace CalculatorNUnitTest
 {
-    public class Tests
+    public class CalculatorTests
     {
         public Calc uut;
 
