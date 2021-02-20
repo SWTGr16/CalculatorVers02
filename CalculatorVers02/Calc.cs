@@ -4,7 +4,7 @@ namespace CalculatorVers02
 {
     public class Calc
     {
-        public double Accumulator { get; private set; }
+        public double Accumulator { get; set; }
 
         public double Add(double a)
         {
@@ -56,24 +56,17 @@ namespace CalculatorVers02
             {
                 Console.WriteLine("Division of {0} by zero not possible.", Accumulator);
                 throw new DivideByZeroException();
-            }
-
-            
-
+            } 
         }
 
         public double Divide(double a, double b)
         {
             if (b != 0)
                 return Accumulator = a / b;
-            
             {
                 Console.WriteLine("Division of {0} by zero not possible.", a);
                 throw new DivideByZeroException();
-            }
-
-            
-
+            }            
         }
 
         public void Clear()
