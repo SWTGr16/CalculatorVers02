@@ -54,6 +54,12 @@ namespace CalculatorNUnitTest
             Assert.That(() => uut.Divide(a,b), Throws.TypeOf<DivideByZeroException>());
         }
 
+        [TestCase(0)] // Tilføjet test af Exception med én parameter 
+        public void TestThatThrowsExceptionOneParameter(double a)
+        {
+            Assert.That(() => uut.Divide(a), Throws.TypeOf<DivideByZeroException>());
+        }
+
         [TestCase(4, 2, 16)]
         [TestCase(5, 3, 125)]
         [TestCase(6, 4, 1296)]
@@ -68,6 +74,8 @@ namespace CalculatorNUnitTest
             uut.Clear();
             Assert.That(uut.Accumulator, Is.EqualTo(0));
         }
+
+        
 
 
     }
