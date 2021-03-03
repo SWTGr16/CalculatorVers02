@@ -58,8 +58,7 @@ namespace CalculatorVers02
                 //return Accumulator /= a;
             
             {
-                Console.WriteLine("Division of {0} by zero not possible.", Accumulator);
-                throw new DivideByZeroException();
+                throw new DivideByZeroException("Division by zero not possible.");
             } 
         }
 
@@ -68,8 +67,7 @@ namespace CalculatorVers02
             if (b != 0)
                 return Accumulator = a / b;
             {
-                Console.WriteLine("Division of {0} by zero not possible.", a);
-                throw new DivideByZeroException();
+                throw new DivideByZeroException("Division by zero not possible.");
             }            
         }
 
