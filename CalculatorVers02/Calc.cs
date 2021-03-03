@@ -4,7 +4,7 @@ namespace CalculatorVers02
 {
     public class Calc
     {
-        public double Accumulator { get; private set; }
+        public double Accumulator { get; set; }
 
         public double Add(double a)
         {
@@ -40,40 +40,35 @@ namespace CalculatorVers02
 
         public double Power(double a)
         {
-            return Math.Pow(Accumulator ,a);
+            return Accumulator=Math.Pow(Accumulator ,a);
              
         }
         public double Power(double x, double exp)
         {
-            return Math.Pow(x, exp);
+            return Accumulator =Math.Pow(x, exp);
         }
 
         public double Divide(double a)
         {
             if (a != 0)
-                return Accumulator /= a;
+            {
+                Accumulator = Accumulator / a;
+                return Accumulator;
+            }
+                //return Accumulator /= a;
             
             {
-                Console.WriteLine("Division of {0} by zero not possible.", Accumulator);
-                throw new DivideByZeroException();
-            }
-
-            
-
+                throw new DivideByZeroException("Division by zero not possible.");
+            } 
         }
 
         public double Divide(double a, double b)
         {
             if (b != 0)
                 return Accumulator = a / b;
-            
             {
-                Console.WriteLine("Division of {0} by zero not possible.", a);
-                throw new DivideByZeroException();
-            }
-
-            
-
+                throw new DivideByZeroException("Division by zero not possible.");
+            }            
         }
 
         public void Clear()
